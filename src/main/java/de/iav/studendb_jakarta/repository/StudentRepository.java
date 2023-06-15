@@ -1,5 +1,6 @@
 package de.iav.studendb_jakarta.repository;
 
+import de.iav.studendb_jakarta.exception.StudentNotFoundException;
 import de.iav.studendb_jakarta.model.Student;
 import jakarta.enterprise.context.ApplicationScoped;
 
@@ -26,7 +27,7 @@ public class StudentRepository {
                 return student;
             }
         }
-        throw new NoSuchElementException("Student with id: " + id + " does not exist!");
+        throw new StudentNotFoundException(id);
     }
 
     public Student addStudent(Student student){
